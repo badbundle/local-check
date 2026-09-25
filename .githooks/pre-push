@@ -1,0 +1,8 @@
+#!/bin/sh
+# Posts local-check results for pushed commits. This repo validates itself with
+# its own source, so the hook runs src/cli.ts rather than an installed copy.
+if ! command -v bun >/dev/null; then
+  echo "bun isn't installed, so local-check results won't be posted." >&2
+  exit 0
+fi
+exec bun "$(git rev-parse --show-toplevel)/src/cli.ts" hook pre-push "$@"

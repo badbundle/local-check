@@ -1,0 +1,31 @@
+{
+  "name": "@badbundle/local-check",
+  "version": "0.1.0",
+  "description": "Run a repo's checks on the exact commit, locally, and post the result to GitHub as a commit status.",
+  "license": "BSD-3-Clause",
+  "repository": "github:badbundle/local-check",
+  "type": "module",
+  "bin": {
+    "local-check": "src/cli.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "bun": ">=1.4"
+  },
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "validate": "bun src/cli.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "typescript": "^7.0.2"
+  }
+}
